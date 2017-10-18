@@ -1,0 +1,56 @@
+{
+  "name": "windows-iana",
+  "version": "0.0.0-development",
+  "description": "A small tool to convert Windows time zones to IANA",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rubenillodo/windows-iana.git"
+  },
+  "author": "Rubén Illodo Brea <me@rubenillodo.com>",
+  "license": "MIT",
+  "scripts": {
+    "precommit": "yarn lint && yarn test",
+    "build": "tsc -p tsconfig.json",
+    "prettier": "prettier --write '**/*.{js,ts,json}'",
+    "lint": "tslint -c tslint.json '{src,__tests__}/**/*.{js,ts}'",
+    "test": "jest",
+    "clean": "rimraf dist",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "devDependencies": {
+    "@types/jest": "^21.1.4",
+    "husky": "^0.14.3",
+    "jest": "^21.2.1",
+    "prettier": "^1.7.4",
+    "rimraf": "^2.6.2",
+    "ts-jest": "^21.1.3",
+    "tslint": "^5.7.0",
+    "tslint-config-prettier": "^1.6.0",
+    "tslint-immutable": "^4.4.0",
+    "tslint-plugin-prettier": "^1.3.0",
+    "typescript": "^2.5.3",
+    "semantic-release": "^8.2.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.ts"
+    ],
+    "coveragePathIgnorePatterns": [
+      ".d.ts"
+    ],
+    "transform": {
+      "\\.ts$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ]
+  }
+}
