@@ -1,4 +1,22 @@
-import { findIana } from "../src";
+import { findIana, findOneIana } from "../src";
+
+describe("findOneIana()", () => {
+  test("returns a IANA time zone when passed just a Windows time zone name", async () => {
+    expect(await findOneIana("UTC-11")).toBe("Etc/GMT+11");
+    expect(await findOneIana("US Mountain Standard Time")).toBe("America/Phoenix");
+    expect(await findOneIana("Central Standard Time")).toBe("America/Chicago");
+    expect(await findOneIana("W. Europe Standard Time")).toBe("Europe/Berlin");
+    expect(await findOneIana("China Standard Time")).toBe("Asia/Shanghai");
+  });
+
+  test("returns a IANA time zone when passed just a Windows time zone name and territory", async () => {
+    expect(await findOneIana("UTC-11", "UM")).toBe("Pacific/Midway");
+    expect(await findOneIana("US Mountain Standard Time", "CA")).toBe("America/Dawson_Creek");
+    expect(await findOneIana("Central Standard Time", "US")).toBe("America/Chicago");
+    expect(await findOneIana("W. Europe Standard Time", "DE")).toBe("Europe/Berlin");
+    expect(await findOneIana("China Standard Time", "HK")).toBe("Asia/Hong_Kong");
+  });
+});
 
 describe("findIana()", () => {
   test("returns a list of IANA time zones when passed just a Windows time zone name", async () => {

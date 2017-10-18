@@ -11,6 +11,10 @@ export const findIana = async (windowsTimeZone: string, territory: string = "001
   return ianaOptions;
 };
 
+export const findOneIana = async (windowsTimeZone: string, territory: string = "001"): Promise<string> => {
+  return (await findIana(windowsTimeZone, territory))[0];
+};
+
 function findMapKey(map: WindowsIanaMap, name: string, territory: string) {
   const keys = map.keys();
 
