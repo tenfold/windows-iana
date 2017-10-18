@@ -1,6 +1,6 @@
 import map, { ZoneMap } from "./time-zone-map";
 
-export const findIana = async (windowsTimeZone: string, territory: string = "001"): Promise<string[]> => {
+export const findIana = (windowsTimeZone: string, territory: string = "001"): string[] => {
   const entry = map.find(
     ({ windowsName: itemName, territory: itemTerritory }) =>
       itemName === windowsTimeZone && itemTerritory === territory,
@@ -12,6 +12,6 @@ export const findIana = async (windowsTimeZone: string, territory: string = "001
   return entry.iana;
 };
 
-export const findOneIana = async (windowsTimeZone: string, territory: string = "001"): Promise<string> => {
-  return (await findIana(windowsTimeZone, territory))[0];
+export const findOneIana = (windowsTimeZone: string, territory: string = "001"): string => {
+  return findIana(windowsTimeZone, territory)[0];
 };
