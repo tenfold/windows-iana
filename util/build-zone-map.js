@@ -24,7 +24,7 @@ const readFile = async () => {
 
 (async () => {
   const map = await readFile();
-  return await fs.writeFile(path.join(__dirname, "../src/windowsZones.json"), JSON.stringify(map, null, 2), {
+  return await fs.writeFile(path.join(__dirname, "../windowsZones.json"), JSON.stringify(map, null, 2), {
     encoding: "utf-8",
   });
 })();
