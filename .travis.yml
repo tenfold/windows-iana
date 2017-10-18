@@ -9,7 +9,7 @@ node_js:
 
 script:
   - yarn lint
-  - yarn test
+  - yarn test -- --coverage
   - yarn build
 
 after_script:
