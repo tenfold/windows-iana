@@ -22,6 +22,7 @@
     "@types/jest": "^21.1.4",
     "@types/mz": "^0.0.32",
     "@types/xml2js": "^0.4.0",
+    "coveralls": "^3.0.0",
     "husky": "^0.14.3",
     "jest": "^21.2.1",
     "prettier": "^1.7.4",
