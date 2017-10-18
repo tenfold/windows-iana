@@ -19,7 +19,7 @@ The library exports `findIana()`, which will return an array of possible IANA ti
 ```
 import { findOneIana } from "windows-iana";
 
-const result = findOneIana("Romance Standard Time")
+const result = findOneIana("Romance Standard Time");
 console.log(result); // "Europe/Paris"
 ```
 
@@ -28,7 +28,7 @@ You may also pass the territory code as a second parameter (have a look again at
 ```
 import { findOneIana } from "windows-iana";
 
-const result = findOneIana("Romance Standard Time", "ES")
+const result = findOneIana("Romance Standard Time", "ES");
 console.log(result); // "Europe/Madrid"
 ```
 
@@ -37,7 +37,7 @@ console.log(result); // "Europe/Madrid"
 ```
 import { findIana } from "windows-iana";
 
-const result = findIana("Romance Standard Time")
+const result = findIana("Romance Standard Time");
 console.log(result); // ["Europe/Paris"]
 ```
 
@@ -46,6 +46,6 @@ You may also pass the territory code to `findIana()`.
 ```
 import { findIana } from "windows-iana";
 
-const result = findIana("Romance Standard Time", "ES")
+const result = findIana("Romance Standard Time", "ES");
 console.log(result); // ["Europe/Madrid", "Africa/Ceuta"]
 ```
