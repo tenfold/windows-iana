@@ -1,6 +1,8 @@
 windows-iana
 ---
 
+[![Build Status](https://travis-ci.org/rubenillodo/windows-iana.svg?branch=master)](https://travis-ci.org/rubenillodo/windows-iana)
+
 This library exports two functions to help convert from Windows time zones to IANA time zones (based on [this mapping definition](https://unicode.org/repos/cldr/trunk/common/supplemental/windowsZones.xml)).
 
 # Installation
