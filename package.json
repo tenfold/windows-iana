@@ -11,7 +11,8 @@
   "license": "MIT",
   "scripts": {
     "precommit": "yarn lint && yarn test",
-    "build": "tsc -p tsconfig.json",
+    "build-zone-map": "node util/build-zone-map",
+    "build": "yarn build-zone-map && tsc -p tsconfig.json",
     "prettier": "prettier --write '**/*.{js,ts,json}'",
     "lint": "tslint -c tslint.json '{src,__tests__}/**/*.{js,ts}'",
     "test": "jest",
