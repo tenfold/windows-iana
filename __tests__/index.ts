@@ -16,6 +16,14 @@ describe("findOneIana()", () => {
     expect(await findOneIana("W. Europe Standard Time", "DE")).toBe("Europe/Berlin");
     expect(await findOneIana("China Standard Time", "HK")).toBe("Asia/Hong_Kong");
   });
+
+  test("throws if the Windows time zone cannot be converted", () => {
+    expect(findOneIana("fake time zone")).rejects.toBeDefined();
+  });
+
+  test("throws if the territory cannot be converted", () => {
+    expect(findOneIana("US Mountain Standard Time", "fake")).rejects.toBeDefined();
+  });
 });
 
 describe("findIana()", () => {
@@ -45,5 +53,13 @@ describe("findIana()", () => {
     ]);
     expect(await findIana("W. Europe Standard Time", "DE")).toEqual(["Europe/Berlin", "Europe/Busingen"]);
     expect(await findIana("China Standard Time", "HK")).toEqual(["Asia/Hong_Kong"]);
+  });
+
+  test("throws if the Windows time zone cannot be converted", () => {
+    expect(findIana("fake time zone")).rejects.toBeDefined();
+  });
+
+  test("throws if the territory cannot be converted", () => {
+    expect(findIana("US Mountain Standard Time", "fake")).rejects.toBeDefined();
   });
 });
