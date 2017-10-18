@@ -17,12 +17,12 @@ describe("findOneIana()", () => {
     expect(findOneIana("China Standard Time", "HK")).toBe("Asia/Hong_Kong");
   });
 
-  test("throws if the Windows time zone cannot be converted", () => {
-    expect(() => findOneIana("fake time zone")).toThrow();
+  test("returns `undefined` if the Windows time zone cannot be converted", () => {
+    expect(findOneIana("fake time zone")).toBeUndefined();
   });
 
-  test("throws if the territory cannot be converted", () => {
-    expect(() => findOneIana("US Mountain Standard Time", "fake")).toThrow();
+  test("returns `undefined` if the territory cannot be converted", () => {
+    expect(findOneIana("US Mountain Standard Time", "fake")).toBeUndefined();
   });
 });
 
@@ -55,11 +55,11 @@ describe("findIana()", () => {
     expect(findIana("China Standard Time", "HK")).toEqual(["Asia/Hong_Kong"]);
   });
 
-  test("throws if the Windows time zone cannot be converted", () => {
-    expect(() => findIana("fake time zone")).toThrow();
+  test("returns `undefined` if the Windows time zone cannot be converted", () => {
+    expect(findIana("fake time zone")).toBeUndefined();
   });
 
-  test("throws if the territory cannot be converted", () => {
-    expect(() => findIana("US Mountain Standard Time", "fake")).toThrow();
+  test("returns `undefined` if the territory cannot be converted", () => {
+    expect(findIana("US Mountain Standard Time", "fake")).toBeUndefined();
   });
 });
