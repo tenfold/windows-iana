@@ -2,12 +2,13 @@
   "compilerOptions": {
     "lib": ["es2015"],
     "module": "commonjs",
-    "moduleResolution": "node",
+    "noImplicitAny": true,
     "outDir": "dist",
+    "preserveConstEnums": true,
+    "removeComments": true,
     "rootDir": "src",
     "sourceMap": true,
-    "strictNullChecks": true,
-    "target": "es5"
+    "strictNullChecks": true
   },
   "include": ["src/**/*"]
 }
