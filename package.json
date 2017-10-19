@@ -3,6 +3,7 @@
   "version": "0.0.0-development",
   "description": "A small tool to convert Windows time zones to IANA",
   "main": "dist/index.js",
+  "types": "dist/index.d.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/rubenillodo/windows-iana.git"
