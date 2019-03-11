@@ -1,4 +1,4 @@
-import map, { ZoneMap } from "./time-zone-map";
+import map from "./time-zone-map";
 
 export const findIana = (windowsTimeZone: string, territory: string = "001"): string[] | undefined => {
   const entry = map.find(
@@ -15,4 +15,9 @@ export const findOneIana = (windowsTimeZone: string, territory: string = "001"):
   const result = findIana(windowsTimeZone, territory);
   if (typeof result === "undefined") return undefined;
   return result[0];
+};
+
+export const findWindows = (ianaTimeZone: string): string | undefined => {
+  const entry = map.find(({ iana }) => iana.indexOf(ianaTimeZone) > -1);
+  return entry && entry.windowsName;
 };
