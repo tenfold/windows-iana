@@ -1,4 +1,4 @@
-import { findIana, findOneIana } from "../src";
+import { findIana, findOneIana, findWindows } from "../src";
 
 describe("findOneIana()", () => {
   test("returns a IANA time zone when passed just a Windows time zone name", () => {
@@ -61,5 +61,19 @@ describe("findIana()", () => {
 
   test("returns `undefined` if the territory cannot be converted", () => {
     expect(findIana("US Mountain Standard Time", "fake")).toBeUndefined();
+  });
+});
+
+describe("findWindows()", () => {
+  test("returns a Windows time zone when a IANA timezone is passed", () => {
+    expect(findWindows("Etc/GMT+11")).toBe("UTC-11");
+    expect(findWindows("America/Phoenix")).toBe("US Mountain Standard Time");
+    expect(findWindows("America/Chicago")).toBe("Central Standard Time");
+    expect(findWindows("Europe/Berlin")).toBe("W. Europe Standard Time");
+    expect(findWindows("Asia/Shanghai")).toBe("China Standard Time");
+  });
+
+  test("returns `undefined` if the IANA timezone cannot be converted", () => {
+    expect(findWindows("fake time zone")).toBeUndefined();
   });
 });
